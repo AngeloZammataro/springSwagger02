@@ -25,41 +25,21 @@ public class MathController {
     }
 
     @GetMapping("/math/division-info")
+    @ApiOperation(value = "Division Info", notes = "Print out Division Info")
     public ArithmeticOperation DivisionInfo(){
         return new ArithmeticOperation("division-info",2,"does the division",
                 new String[]{"distributive-property","invariant-property"});
     }
 
     @GetMapping("multiplication")
+    @ApiOperation(value = "Execute multiplication", notes = "Takes two int parameters and returns the multiplication result")
     public int multiplication(@RequestParam int a, int b){
         return Math.multiplyExact(a,b);
     }
 
     @GetMapping("square/{n}")
-    public String ArithmeticSquare(){
-        return "Execute multiplication operation";
+    @ApiOperation(value = "Execute square", notes = "Takes one int parameters and calculate square of a number")
+    public double square(@ApiParam(value = "The id of the user") @PathVariable int n){
+        return Math.pow(n,2);
     }
-
-    //------------------------------------------------------------------------------------------------------------------
-    /*
-    @GetMapping(value = "/user")
-    public User sayHelloToUser(){
-        return new User("Angelo","Zammataro","Carini","Palermo");
-    }
-
-    @PostMapping(value = "/user")
-    public void CreateAUser(@ApiParam(value = "The user request body") @RequestBody(required = false) User user){
-    }
-
-    @GetMapping(value = "/name")
-    public String sayHelloWithName(@ApiParam(value = "The name of the user") @RequestParam String name){
-        return "Hello " + name;
-    }
-
-    @GetMapping(value = "/name/{id}")
-    public String sayHelloWithNamePath(@ApiParam(value = "The id of the user") @PathVariable String id){
-        return "Hello " + id;
-    }
-
-     */
 }
