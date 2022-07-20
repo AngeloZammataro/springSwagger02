@@ -17,8 +17,4 @@ public class ArithmeticOperation {
     private String description;
     @ApiModelProperty(value = "A list of properties of the specific operation", example = "['Anti-commutativity', 'Non-associativity', 'Predecessor']")
     private String[] properties;
-
-    public int multiplication(int x, int y){
-        return x*y;
-    }
 }

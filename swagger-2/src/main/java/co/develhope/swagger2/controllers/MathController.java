@@ -31,8 +31,8 @@ public class MathController {
     }
 
     @GetMapping("multiplication")
-    public ArithmeticOperation multiplication(@RequestParam int a, int b){
-        return multiplication(a,b);
+    public int multiplication(@RequestParam int a, int b){
+        return Math.multiplyExact(a,b);
     }
 
     @GetMapping("square/{n}")
